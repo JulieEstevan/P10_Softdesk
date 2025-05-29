@@ -5,7 +5,7 @@ class User(AbstractUser):
     """
     Custom user model that extends the default Django user model.
     """
-    birth_date = models.DateField(null=True, blank=True)
+    birth_date = models.DateField()
     can_be_contacted = models.BooleanField(default=False)
     can_data_be_shared = models.BooleanField(default=False)
 
