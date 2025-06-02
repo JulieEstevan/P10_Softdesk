@@ -16,13 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
+from rest_framework.routers import DefaultRouter
+from rest_framework_nested import routers
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
-from authentication.views import UserViewSet, RegisterUserSerializer
+from authentication.views import UserViewSet
+from main.views import ProjectViewset, ContributorViewset, IssueViewset, CommentViewset
 
-router = routers.DefaultRouter()
+router = DefaultRouter()
 router.register(r'users', UserViewSet, basename='user')
+router.register(r'projects', ProjectViewset, basename='projects')
+
+# Nested routers for contributors, issues, and comments
+project_router = routers.NestedSimpleRouter(router, r"projects", lookup="project")
+project_router.register(r"contributors", ContributorViewset, basename="project-contributors")
+project_router.register(r"issues", IssueViewset, basename="project-issues")
+project_router.register(r"issues/(?P<issue_pk>[^/.]+)/comments", CommentViewset, basename="issue-comments")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +40,8 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', include(router.urls)),
+    path("api/", include(project_router.urls)),
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("api/schema/swagger-ui/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
+    path("api/schema/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 ]

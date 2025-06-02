@@ -16,13 +16,14 @@ class TimeStampMixin(models.Model):
     class Meta:
         abstract = True
 
+
 class Project(TimeStampMixin):
     class ProjectType(models.TextChoices):
         BACKEND = "Back-end"
         FRONTEND = "Front-end"
         iOS = "iOS"
         ANDROID = "Android"
-    
+
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -31,13 +32,15 @@ class Project(TimeStampMixin):
     def __str__(self):
         return self.name
 
+
 class Contributor(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='contributors')
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='contributors')
     added_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.user}"
+
 
 class Issue(TimeStampMixin):
     class IssueStatus(models.TextChoices):
@@ -68,6 +71,7 @@ class Issue(TimeStampMixin):
 
     def __str__(self):
         return self.name
+
 
 class Comment(TimeStampMixin):
     issue = models.ForeignKey(Issue, on_delete=models.CASCADE, related_name="comments")

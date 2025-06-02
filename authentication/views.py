@@ -4,6 +4,7 @@ from .models import User
 from .serializers import UserSerializer, RegisterUserSerializer
 from .permissions import IsSelfOrAdminOrReadOnly
 
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     permission_classes = [permissions.IsAuthenticated, IsSelfOrAdminOrReadOnly]

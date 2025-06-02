@@ -4,6 +4,7 @@ from datetime import date
 
 from .models import User
 
+
 class RegisterUserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
     password2 = serializers.CharField(write_only=True, required=True)
@@ -29,6 +30,7 @@ class RegisterUserSerializer(serializers.ModelSerializer):
         validated_data.pop("password2")
         user = User.objects.create_user(**validated_data)
         return user
+
 
 class UserSerializer(serializers.ModelSerializer):
     """
