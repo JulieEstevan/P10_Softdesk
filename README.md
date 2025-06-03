@@ -66,7 +66,7 @@ The API is available locally at:
 
 The API exposes endpoints to manage users, projects, issues, and comments. Refer to the API documentation (Swagger or Redoc) for more details.  
 Swagger:        
-[http://127.0.0.1:8000/api/schema/swagger-ui/](http://127.0.0.1:8000/api/schema/swagger-ui/)
+[http://127.0.0.1:8000/api/schema/swagger-ui/](http://127.0.0.1:8000/api/schema/swagger-ui/)    
 Redoc:  
 [http://127.0.0.1:8000/api/schema/redoc/](http://127.0.0.1:8000/api/schema/redoc/)
 
