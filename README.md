@@ -42,22 +42,20 @@ Softdesk is a REST API developed with Django REST Framework. It enables collabor
 ## Installation
 
 1. Clone the repository:
-        ```bash
+        ```
         git clone <repo-url>
         cd P10_Softdesk
         ```
 2. Install Pipenv and dependencies:
-        ```bash
-        pip install pipenv
-        pipenv install
-        pipenv shell
-        ```
+        ```pip install pipenv```
+        ```pipenv install```
+        ```pipenv shell ```
 3. Apply migrations:
         ```bash
         python manage.py migrate
         ```
 4. Start the server:
-        ```bash
+        ```
         python manage.py runserver
         ```
 
@@ -66,7 +64,11 @@ Softdesk is a REST API developed with Django REST Framework. It enables collabor
 The API is available locally at:  
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-The API exposes endpoints to manage users, projects, issues, and comments. Refer to the API documentation (Swagger or DRF browsable API) for more details.
+The API exposes endpoints to manage users, projects, issues, and comments. Refer to the API documentation (Swagger or Redoc) for more details.
+Swagger:
+[http://127.0.0.1:8000/api/schema/swagger-ui/](http://127.0.0.1:8000/api/schema/swagger-ui/)
+Redoc:
+[http://127.0.0.1:8000/api/schema/redoc/](http://127.0.0.1:8000/api/schema/redoc/)
 
 ## Authentication
 
@@ -147,7 +149,11 @@ Softdesk est une API REST développée avec Django REST Framework. Elle permet l
 L'API est accessible à l'adresse suivante en local :  
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-L'API expose des endpoints pour gérer les utilisateurs, projets, issues et commentaires. Consultez la documentation de l'API (Swagger ou DRF browsable API) pour plus de détails.
+L'API expose des endpoints pour gérer les utilisateurs, projets, issues et commentaires. Consultez la documentation de l'API (Swagger ou Redoc) pour plus de détails.
+Swagger:
+[http://127.0.0.1:8000/api/schema/swagger-ui/](http://127.0.0.1:8000/api/schema/swagger-ui/)
+Redoc:
+[http://127.0.0.1:8000/api/schema/redoc/](http://127.0.0.1:8000/api/schema/redoc/)
 
 ## Authentification
 
