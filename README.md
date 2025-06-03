@@ -149,10 +149,10 @@ Softdesk est une API REST développée avec Django REST Framework. Elle permet l
 L'API est accessible à l'adresse suivante en local :  
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-L'API expose des endpoints pour gérer les utilisateurs, projets, issues et commentaires. Consultez la documentation de l'API (Swagger ou Redoc) pour plus de détails.
-Swagger:
-[http://127.0.0.1:8000/api/schema/swagger-ui/](http://127.0.0.1:8000/api/schema/swagger-ui/)
-Redoc:
+L'API expose des endpoints pour gérer les utilisateurs, projets, issues et commentaires. Consultez la documentation de l'API (Swagger ou Redoc) pour plus de détails.   
+Swagger:        
+[http://127.0.0.1:8000/api/schema/swagger-ui/](http://127.0.0.1:8000/api/schema/swagger-ui/)    
+Redoc:  
 [http://127.0.0.1:8000/api/schema/redoc/](http://127.0.0.1:8000/api/schema/redoc/)
 
 ## Authentification
