@@ -13,7 +13,7 @@ class RegisterUserSerializer(serializers.ModelSerializer):
         model = User
         fields = ("username", "email", "password", "password2", "birth_date", "can_be_contacted", "can_data_be_shared")
 
-    def validate_age(self, value):
+    def validate_birth_date(self, value):
         today = date.today()
         birth_date = value
         age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
